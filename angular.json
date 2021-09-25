@@ -42,6 +42,207 @@
           }
         }
       }
+    },
+    "lib-tester": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/lib-tester",
+      "sourceRoot": "projects/lib-tester/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/lib-tester",
+            "index": "projects/lib-tester/src/index.html",
+            "main": "projects/lib-tester/src/main.ts",
+            "polyfills": "projects/lib-tester/src/polyfills.ts",
+            "tsConfig": "projects/lib-tester/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/lib-tester/src/favicon.ico",
+              "projects/lib-tester/src/assets"
+            ],
+            "styles": [
+              "projects/lib-tester/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/lib-tester/src/environments/environment.ts",
+                  "with": "projects/lib-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lib-tester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lib-tester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lib-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lib-tester/src/test.ts",
+            "polyfills": "projects/lib-tester/src/polyfills.ts",
+            "tsConfig": "projects/lib-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/lib-tester/karma.conf.js",
+            "assets": [
+              "projects/lib-tester/src/favicon.ico",
+              "projects/lib-tester/src/assets"
+            ],
+            "styles": [
+              "projects/lib-tester/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lib-tester/tsconfig.app.json",
+              "projects/lib-tester/tsconfig.spec.json",
+              "projects/lib-tester/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/lib-tester/e2e/protractor.conf.js",
+            "devServerTarget": "lib-tester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lib-tester:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "amf-lib": {
+      "projectType": "library",
+      "root": "projects/amf-lib",
+      "sourceRoot": "projects/amf-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/amf-lib/tsconfig.lib.json",
+            "project": "projects/amf-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/amf-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/amf-lib/src/test.ts",
+            "tsConfig": "projects/amf-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/amf-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/amf-lib/tsconfig.lib.json",
+              "projects/amf-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "arq-mf-weblib": {
+      "projectType": "library",
+      "root": "projects/arq-mf-weblib",
+      "sourceRoot": "projects/arq-mf-weblib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/arq-mf-weblib/tsconfig.lib.json",
+            "project": "projects/arq-mf-weblib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/arq-mf-weblib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/arq-mf-weblib/src/test.ts",
+            "tsConfig": "projects/arq-mf-weblib/tsconfig.spec.json",
+            "karmaConfig": "projects/arq-mf-weblib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/arq-mf-weblib/tsconfig.lib.json",
+              "projects/arq-mf-weblib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": "6f2bab17-bf9d-4741-a306-8ccd2d63742f"

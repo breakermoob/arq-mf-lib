@@ -8,10 +8,16 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/arq-mf-lib/tsconfig.lib.json"
+      "path": "./projects/lib-tester/tsconfig.app.json"
     },
     {
-      "path": "./projects/arq-mf-lib/tsconfig.spec.json"
+      "path": "./projects/lib-tester/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/arq-mf-weblib/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/arq-mf-weblib/tsconfig.spec.json"
     }
-]
+  ]
 }
