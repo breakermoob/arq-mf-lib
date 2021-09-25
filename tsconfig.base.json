@@ -19,6 +19,14 @@
       "arq-mf-lib": [
         "dist/arq-mf-lib/arq-mf-lib",
         "dist/arq-mf-lib"
+      ],
+      "amf-lib": [
+        "dist/amf-lib/amf-lib",
+        "dist/amf-lib"
+      ],
+      "arq-mf-weblib": [
+        "dist/arq-mf-weblib/arq-mf-weblib",
+        "dist/arq-mf-weblib"
       ]
     }
   }
