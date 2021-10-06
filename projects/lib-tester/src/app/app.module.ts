@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AmfLibButtonModule } from 'arq-mf-weblib';
-import { AmfLibLinkModule } from 'arq-mf-weblib';
+import { AmfLibBannerModule, AmfLibButtonModule, AmfLibCardModule, AmfLibLinkModule } from 'arq-mf-weblib';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -14,6 +13,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     AmfLibLinkModule,
     AmfLibButtonModule,
+    AmfLibBannerModule,
+    AmfLibCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

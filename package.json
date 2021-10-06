@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mfbuild": "ng build arq-mf-weblib"
+    "mfbuild": "ng build arq-mf-weblib --prod"
   },
   "private": true,
   "dependencies": {
